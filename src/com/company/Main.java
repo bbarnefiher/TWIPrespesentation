@@ -55,7 +55,7 @@ public class Main {
 
             for (int i = 0; i < userPhrase.length(); i++){
                 if (i % 5 == 0){
-
+                    //userEncrypted[i] = userphraseASCII[i].toBinaryString();
                 }
                 else if (i % 5 == 1){
 
