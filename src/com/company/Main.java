@@ -1,4 +1,6 @@
 package com.company;
+import javafx.util.converter.IntegerStringConverter;
+
 import java.lang.reflect.Array;
 import java.util.*;
 import java.io.*;
@@ -32,6 +34,7 @@ public class Main {
         System.out.println(Arrays.toString(userPhraseArray));
         //turns userPhrase into array*/
         Integer userphraseASCII[] = new Integer[userPhrase.length()];
+        userphraseASCII[0] = 0;
         for (int i = 0; i < userPhrase.length(); i++){
             char currentChar = userPhrase.charAt(i);
             int ASCIIchar = (int) currentChar;
@@ -44,40 +47,50 @@ public class Main {
         String[] userEncrypted = new String[userPhrase.length()];
 
     int encryptFinish = 0;
-        String endingChar = userPhrase.substring(userPhrase.length()-1, userPhrase.length());
-        System.out.println(endingChar);
+        //String endingChar = userPhrase.substring(userPhrase.length()-1, userPhrase.length());
+        //System.out.println(endingChar);
         //sets parameters for future while loops
-    if (startingPoint == 1.0) { //binary
 
-        while (encryptFinish == 0){
+        double randPercent = Math.random();
+        int startingLetter = userPhrase.length();
+        int startingPosition = (int)(startingLetter * randPercent);
+        System.out.println("starting at letter position:" + startingPosition);
+    if (startingPoint >= 1.0) { //binary
 
-            System.out.println("while loop is running...");
+        //while (encryptFinish == 0){
+
 
             for (int i = 0; i < userPhrase.length(); i++){
-                if (i % 5 == 0){
-                    //userEncrypted[i] = userphraseASCII[i].toBinaryString();
-                }
-                else if (i % 5 == 1){
+                if (startingPosition % 5 == 0){
+                    userEncrypted[i] = Integer.toBinaryString(userphraseASCII[i]);
 
                 }
-                else if (i % 5 == 2){
-
+                else if (startingPosition % 5 == 1){
+                    userEncrypted[i] = Integer.toOctalString(userphraseASCII[i]);
                 }
-                else if (i % 5 == 3){
-
+                else if (startingPosition % 5 == 2){
+                    //decimal: operation already performed
+                    int tempInt = userphraseASCII[i];
+                    String tempString = String.valueOf(tempInt);
+                    userEncrypted[i] = tempString;
                 }
-                else if (i % 5 == 4){
-
+                else if (startingPosition % 5 == 3){
+                    userEncrypted[i] = Integer.toHexString(userphraseASCII[i]);
                 }
-            }
+                else if (startingPosition % 5 == 4){
+                    userEncrypted[i] = userPhrase.substring(i, i+1);
+                }
+                startingPosition++;
+           // }
 
 
-            if (!(userEncrypted[userPhrase.length()-1].equals(endingChar))){
-                encryptFinish = 1;
-            }
+//            if (!(userEncrypted[userPhrase.length()-1].equals(endingChar))){
+  //              System.exit(0);
+    //            encryptFinish = 1;
+      //      }
         }
     }
-        System.out.println("while loop over");
+        System.out.println(Arrays.toString(userEncrypted));
     if (startingPoint == 2.0){ //octal
 
 
