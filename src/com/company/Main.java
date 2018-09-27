@@ -41,6 +41,7 @@ public class Main {
         System.out.println(Arrays.toString(userphraseASCII));
 
         //changes each character in array to be its ASCII code
+        String[] userEncrypted = new String[userPhrase.length()];
 
     int encryptFinish = 0;
         String endingChar = userPhrase.substring(userPhrase.length()-1, userPhrase.length());
@@ -52,14 +53,28 @@ public class Main {
 
             System.out.println("while loop is running...");
 
+            for (int i = 0; i < userPhrase.length(); i++){
+                if (i % 5 == 0){
+
+                }
+                else if (i % 5 == 1){
+
+                }
+                else if (i % 5 == 2){
+
+                }
+                else if (i % 5 == 3){
+
+                }
+                else if (i % 5 == 4){
+
+                }
+            }
 
 
-
-
-
-            //if (!(userPhraseArray[userPhrase.length()-1].equals(endingChar))){
-            //    encryptFinish = 1;
-            //}
+            if (!(userEncrypted[userPhrase.length()-1].equals(endingChar))){
+                encryptFinish = 1;
+            }
         }
     }
         System.out.println("while loop over");
