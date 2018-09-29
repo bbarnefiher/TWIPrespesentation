@@ -1,5 +1,5 @@
 package com.company;
-import javafx.util.converter.IntegerStringConverter;
+
 
 import java.lang.reflect.Array;
 import java.util.*;
@@ -14,25 +14,10 @@ public class Main {
     System.out.println("Enter your phrase to be encrypted:");
     String userPhrase = stringReader.nextLine();
 
-    double startingPoint = Math.ceil(Math.random()*5);
-    System.out.println(startingPoint);
-
-        //String userPhraseArray[] = new String[userPhrase.length()];
-
-        char[] chars = userPhrase.toCharArray();
+    //double startingPoint = Math.ceil(Math.random()*5);
 
 
 
-
-
-
-       /* for (int i = 0; i < userPhrase.length(); i++){
-            //System.out.println(i);
-            userPhraseArray[i] = userPhrase.substring(i, i + 1);
-
-        }
-        System.out.println(Arrays.toString(userPhraseArray));
-        //turns userPhrase into array*/
         Integer userphraseASCII[] = new Integer[userPhrase.length()];
         userphraseASCII[0] = 0;
         for (int i = 0; i < userPhrase.length(); i++){
@@ -41,23 +26,19 @@ public class Main {
             userphraseASCII[i] = ASCIIchar;
 
         }
-        System.out.println(Arrays.toString(userphraseASCII));
+      //  System.out.println(Arrays.toString(userphraseASCII));
 
         //changes each character in array to be its ASCII code
         String[] userEncrypted = new String[userPhrase.length()];
 
-    int encryptFinish = 0;
-        //String endingChar = userPhrase.substring(userPhrase.length()-1, userPhrase.length());
-        //System.out.println(endingChar);
-        //sets parameters for future while loops
 
         double randPercent = Math.random();
         int startingLetter = userPhrase.length();
         int startingPosition = (int)(startingLetter * randPercent);
-        System.out.println("starting at letter position:" + startingPosition);
-    if (startingPoint >= 1.0) { //binary
+      //  System.out.println("starting letter position:" + startingPosition);
 
-        //while (encryptFinish == 0){
+
+
 
 
             for (int i = 0; i < userPhrase.length(); i++){
@@ -81,35 +62,13 @@ public class Main {
                     userEncrypted[i] = userPhrase.substring(i, i+1);
                 }
                 startingPosition++;
-           // }
 
 
-//            if (!(userEncrypted[userPhrase.length()-1].equals(endingChar))){
-  //              System.exit(0);
-    //            encryptFinish = 1;
-      //      }
-        }
-    }
-        System.out.println(Arrays.toString(userEncrypted));
-    if (startingPoint == 2.0){ //octal
+
 
 
     }
-    if (startingPoint == 3.0){ //decimal
-
-    }
-    if (startingPoint == 4.0){ //hex
-
-    }
-    if (startingPoint == 5.0){ //ASCII
-
-    }
-
-
-
-
-
-
+        System.out.println("Your encrypted message is: " + Arrays.toString(userEncrypted));
 
     }
 }
